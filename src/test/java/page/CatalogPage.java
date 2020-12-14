@@ -16,8 +16,6 @@ public class CatalogPage extends AbstractPage
 	@FindBy(xpath = "//p[@class='empty__text']")
 	WebElement emptyMessageText;
 
-
-
 	public CatalogPage(WebDriver driver)
 	{
 		super(driver);

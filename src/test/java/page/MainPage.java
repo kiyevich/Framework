@@ -32,7 +32,6 @@ public class MainPage extends AbstractPage
 	@FindBy(xpath = "//a[@href='/auth/#']")
 	WebElement loginButton;
 
-
 	public MainPage(WebDriver driver)
 	{
 		super(driver);
@@ -41,7 +40,6 @@ public class MainPage extends AbstractPage
 
 	public MainPage openPage()
 	{
-
 		driver.get(PAGE_URL);
 		logger.info("Main page opened");
 		return this;
@@ -50,7 +48,6 @@ public class MainPage extends AbstractPage
 
 
     public MainPage typeSearchRequest(String searchRequest){
-
 		new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
 				.until(ExpectedConditions.elementToBeClickable(SearchButton))
 				.click();
@@ -101,7 +98,6 @@ public class MainPage extends AbstractPage
 	}
 
 	public LoginPage pressLoginButton(){
-
 		new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
 				.until(ExpectedConditions.elementToBeClickable(loginButton))
 				.click();

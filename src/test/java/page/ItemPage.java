@@ -20,8 +20,6 @@ public class ItemPage extends AbstractPage
 	@FindBy(xpath = "//a[@class='header__button js-vue-small-cart']")
 	WebElement CardButton;
 
-
-
 	public ItemPage(WebDriver driver)
 	{
 		super(driver);

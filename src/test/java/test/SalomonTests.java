@@ -15,18 +15,18 @@ import org.testng.asserts.SoftAssert;
 
 public class SalomonTests extends CommonConditions {
 
-
-
 	@Test(priority = 1)
 	public void logoutTest() {
 		UserCreator userCreator = new UserCreator();
 		User testUser = userCreator.withCredentialsFromProperty();
+
 		String resultTitle = new LoginPage(driver)
 				.openPage()
 				.login(testUser)
 				.logout()
 		        .pressLoginButton()
 		        .getTile();
+
 		assertThat(resultTitle, is(equalTo("ВОЙДИТЕ ИЛИ ЗАРЕГИСТРИРУЙТЕСЬ")));
 	}
 
@@ -51,6 +51,7 @@ public class SalomonTests extends CommonConditions {
 				.openPage()
 				.typeSearchRequest("TOUNDRA PRO CSWP W")
 				.getItemTitle();
+
 		assertThat(resultItemTitle, is(equalTo("TOUNDRA PRO CSWP W")));
 	}
 
@@ -85,9 +86,11 @@ public class SalomonTests extends CommonConditions {
 	public void incorrentDataLoginTest(){
 		UserCreator userCreator = new UserCreator();
 		User testUser = userCreator.withIncorrectPassword();
+
 		new LoginPage(driver)
 				.openPage()
 				.login(testUser);
+
 		String ResultNotifyText = new LoginPage(driver).getNotifyText();
 		assertThat(ResultNotifyText, is(equalTo("Неверный пароль")));
 	}
@@ -96,12 +99,13 @@ public class SalomonTests extends CommonConditions {
 	public void loginTest()  {
 		UserCreator userCreator = new UserCreator();
 		User testUser = userCreator.withCredentialsFromProperty();
+
 		String UserEmail = new LoginPage(driver)
 				.openPage()
 				.login(testUser)
 				.getUserEmail();
-		assertThat(UserEmail, is(equalTo(testUser.getUsername())));
 
+		assertThat(UserEmail, is(equalTo(testUser.getUsername())));
 	}
 
 	@Test(priority = 8)
@@ -118,10 +122,12 @@ public class SalomonTests extends CommonConditions {
 	public void incorrectEmailMailingTest() {
 		UserCreator userCreator = new UserCreator();
 		User testUser = userCreator.withIncorrectEmail();
+
 		String mailingFieldError = new MainPage(driver)
 				.openPage()
 				.sendEmailToMailingField(testUser)
 				.getMailingFieldError();
+
 		assertThat(mailingFieldError, is(equalTo("Введите e-mail")));
 	}
 
@@ -136,6 +142,5 @@ public class SalomonTests extends CommonConditions {
 				.getNotifyText();
 
 		assertThat(notifyText, is(equalTo("Неверный промокод")));
-
 	}
 }
