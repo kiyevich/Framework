@@ -42,7 +42,6 @@ public class AccountPage extends AbstractPage
 	}
 
 	public MainPage logout(){
-
 		new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
 				.until(ExpectedConditions.elementToBeClickable(logout));
 
