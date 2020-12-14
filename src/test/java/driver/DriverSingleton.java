@@ -9,7 +9,6 @@ public class DriverSingleton {
 
     private static WebDriver driver;
 
-
     private DriverSingleton(){}
 
     public static WebDriver getDriver(){
@@ -22,15 +21,10 @@ public class DriverSingleton {
                 default: {
                    WebDriverManager.chromedriver().version("87").setup();
                     driver = new ChromeDriver();
-//                    System.setProperty("webdriver.chrome.driver", "D://WebDriver/drivers/chromedriver.exe");
-//                     driver = new ChromeDriver();
                 }
             }
             driver.manage().window().maximize();
         }
-
-
-
         return driver;
     }
 
