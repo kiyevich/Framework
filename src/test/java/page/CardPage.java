@@ -14,7 +14,6 @@ public class CardPage extends AbstractPage
 {
 	private final Logger logger = LogManager.getRootLogger();
 
-
 	@FindBy(xpath = "//li[@class='checkout-item']/a")
 	WebElement CardItemTitle;
 
@@ -71,6 +70,7 @@ public class CardPage extends AbstractPage
 
 		return this;
 	}
+
 	public String getNotifyText(){
 		String resultNotifyText = new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
 				.until(ExpectedConditions.visibilityOf(notifyText))
