@@ -45,8 +45,6 @@ public class MainPage extends AbstractPage
 		return this;
 	}
 
-
-
     public MainPage typeSearchRequest(String searchRequest){
 		new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
 				.until(ExpectedConditions.elementToBeClickable(SearchButton))
